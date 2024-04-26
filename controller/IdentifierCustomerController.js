@@ -26,7 +26,7 @@ const createIdentifier = function(cardCode, customer) {
 };
 
 exports.createIdentifierWithCustomer = [(req,res)=>{
-    const customerId = customer._id.toString()
+    const customerId = req.body._id.toString()
     createIdentifier(customerId.substring(0, 10).toUpperCase(), customerId)
     .then((identifier)=>{
         return res.status(200).send(identifier)
@@ -42,7 +42,7 @@ exports.showAllIdentifiers = [async (req, res)=>{
         const identifiers = await Identifier.find().populate("customer")
 
         // const identifiers = await Identifier.find()
-        // .populate("customer", "-_id -__v");
+        // .populate("customer", "-_id -__v")
         // .select("-__v");
         
         // const identifiers = await Identifier.find()
