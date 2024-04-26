@@ -26,8 +26,12 @@ const createIdentifier = function(cardCode, customer) {
 };
 
 exports.createIdentifierWithCustomer = [(req,res)=>{
+    const cardCode = req.body.cardCode.toUpperCase()
     const customerId = req.body._id.toString()
-    createIdentifier(customerId.substring(0, 10).toUpperCase(), customerId)
+    createIdentifier(
+        cardCode,       //Card Code
+        customerId      //Id of the customer  
+    )
     .then((identifier)=>{
         return res.status(200).send(identifier)
     })
