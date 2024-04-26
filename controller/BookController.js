@@ -1,6 +1,6 @@
 const Book = require("../models/BookModel")
 const {body, validationResult } = require("express-validator")
-const { sanitizeBody } = require("express-validator");
+const { sanitizeBody } = require("express-validator")
 
 
 exports.list = [(req, res)=>{
