@@ -67,6 +67,7 @@ app.use("/public", express.static(__dirname + "/public"))
 app.use(require("./routes/BookRoute"))
 app.use(require("./routes/ProductRoute"))
 app.use(require("./routes/IdentifierCustomerRoute"))
+app.use(require("./routes/PostRoute"))
 
 //=============================================================
 const verifyToken = require("./middleware/AuthMiddleware")

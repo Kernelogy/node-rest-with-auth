@@ -9,4 +9,4 @@ const Customer = mongoose.model(
   })
 );
 
-module.exports = Customer;
+module.exports = Customer

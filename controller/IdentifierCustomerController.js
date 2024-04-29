@@ -38,21 +38,28 @@ exports.createIdentifierWithCustomer = [(req,res)=>{
     .catch((err)=>{
         return res.status(200).send(err.message)
     })
-
 }]
 
 exports.showAllIdentifiers = [async (req, res)=>{
     try{
-        const identifiers = await Identifier.find().populate("customer")
+        // const identifiers = await Identifier.find().populate("customer")
 
-        // const identifiers = await Identifier.find()
-        // .populate("customer", "-_id -__v")
-        // .select("-__v");
-        
-        // const identifiers = await Identifier.find()
-        // .select("-__v -customer.__v -customer._id");
+        const identifiers = await Identifier.find()
+            .populate("customer", "-_id -__v")
+
+
         return res.status(200).send(identifiers)
     }catch(err){
         return res.status(200).send(err.message)
     }
 }]
+
+
+// const identifiers = await Identifier.find().populate("customer")
+
+// const identifiers = await Identifier.find()
+// .populate("customer", "-_id -__v")
+// .select("-__v");
+
+// const identifiers = await Identifier.find()
+// .select("-__v -customer.__v -customer._id");

@@ -5,6 +5,9 @@ const IndentifierCustomerController = require("../controller/IdentifierCustomerC
 
 router.post("/customer/insert", IndentifierCustomerController.createCustomer)
 router.post("/identifier/insert", IndentifierCustomerController.createIdentifierWithCustomer)
+
+
+
 router.get("/indentifier/list", IndentifierCustomerController.showAllIdentifiers)
 
 module.exports = router
