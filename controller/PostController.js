@@ -13,6 +13,20 @@ exports.insert = [(req,res)=>{
         return res.status(200).send(err.message)
     })
 }]
+exports.insertWithImages = [(req,res)=>{
+    const post = new Post({
+        title: req.body.title,
+        author: req.body.author,
+        images: req.body.images
+    })
+    post.save()
+    .then((post)=>{
+        return res.status(200).send(post)
+    })
+    .catch((err)=>{
+        return res.status(200).send(err.message)
+    })
+}]
 
 exports.addImage = [(req, res)=>{
     Post.findByIdAndUpdate(req.body.postId,{
