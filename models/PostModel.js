@@ -5,14 +5,14 @@ const Post = mongoose.model(
   new mongoose.Schema({
     title: String,
     author: String,
-    images: [],
-    comments: [
+    images: [],   //OneToFew - unmodifieable, populate implicitly
+    comments: [   //OneToMany - modifieable, populate explicitly
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
       }
     ],
-    tags: [
+    tags: [     //ManyToMany
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Tag"
